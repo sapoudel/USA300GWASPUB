@@ -1,0 +1,14 @@
+#!/bin/bash -l 
+ 
+#SBATCH -p regular 
+#SBATCH -N 1 --ntasks-per-node=32 
+#SBATCH -t 04:30:00 
+#SBATCH --mail-user=sapoudel@ucsd.edu 
+#SBATCH --mail-type=ALL 
+#SBATCH -C haswell 
+ 
+module load python 
+ 
+srun -n 32 python ../random_restart_ica.py -f log_tpm_norm.csv -i 100 -t 1e-7 -x /global/cscratch1/sd/sapoudel/allCC8_TCHref/246 -d 246 
+srun -n 32 python ../compute_distance.py -i 100 -x /global/cscratch1/sd/sapoudel/allCC8_TCHref/246 
+srun -n 1 -N 1 python ../cluster_components.py -i 100 -x /global/cscratch1/sd/sapoudel/allCC8_TCHref/246 -w 32

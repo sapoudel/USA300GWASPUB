@@ -1,0 +1,5 @@
+CompId	Annotation	NumberOfNodes	EValue
+19	USA300HOU_RS01175;DBGWAS_general_tag=coagulase	81	5.690000e-25
+19	SAOUHSC_00192;DBGWAS_general_tag=staphylocoagulase	91	1.320000e-26
+19	TCH1516intergenic_268127-268308	1	1.700000e-10
+19	NCTC8325intergenic_213642-213823	1	1.700000e-10

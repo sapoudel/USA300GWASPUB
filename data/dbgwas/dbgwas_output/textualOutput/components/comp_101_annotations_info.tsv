@@ -1,0 +1,5 @@
+CompId	Annotation	NumberOfNodes	EValue
+101	USA300HOU_RS03510;DBGWAS_general_tag=iron_ABC_transporter_permease	13	1.510000e-80
+101	SAOUHSC_00654;DBGWAS_general_tag=ferrichrome_ABC_transporter_permease	13	1.510000e-80
+101	USA300HOU_RS03505;DBGWAS_general_tag=ferrichrome_ABC_transporter_permease	6	1.070000e-27
+101	SAOUHSC_00653;DBGWAS_general_tag=ferrichrome_transport_permease_FhuB	6	1.070000e-27

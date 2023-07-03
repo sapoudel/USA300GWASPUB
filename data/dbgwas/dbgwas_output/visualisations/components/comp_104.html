@@ -1,0 +1,147 @@
+<!--
+## Copyright (C) <2017>  <bioMerieux, Universite Claude Bernard Lyon 1,
+## Centre National de la Recherche Scientifique>
+
+## 1. This program is free software: you can redistribute it and/or modify
+## it under the terms of the GNU Affero General Public License as published
+## by the Free Software Foundation version 3 of the  License and under the
+## terms of article 2 below.
+## 2. This program is distributed in the hope that it will be useful, but
+## WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+## or FITNESS FOR A PARTICULAR PURPOSE. See below the GNU Affero General
+## Public License for more details.
+## You should have received a copy of the GNU Affero General Public License
+## along with this program.  If not, see <http://www.gnu.org/licenses/>.
+## 3. Communication to the public by any means, in particular in the form of
+## a scientific paper, a poster, a slideshow, an internet page, or a patent,
+## of a result obtained directly or indirectly by running this program must
+## cite the following paper :
+##  Magali Jaillard, Maud Tournoud, Leandro Lima, Vincent Lacroix,
+##  Jean-Baptiste Veyrieras and Laurent Jacob, "Representing Genetic
+##  Determinants in Bacterial GWAS with Compacted De Bruijn Graphs", 2017,
+##  Cold Spring Harbor Labs Journals, doi:10.1101/113563.
+##  (url: http://www.biorxiv.org/content/early/2017/03/03/113563)
+## -------------------------------------------------------------------------
+
+## Authors (alphabetically): Jacob L., Jaillard M., Lima L.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset=utf-8 />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, minimal-ui">
+
+    <title>DBGWAS Viewer v0.1</title>
+
+    <link rel="stylesheet" href="lib/css/bootstrap.min.css">
+    <link rel="stylesheet" href="lib/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="lib/css/bootstrap-slider.min.css">
+    <link rel="stylesheet" href="lib/css/font-awesome.min.css">
+    <link href="lib/css/jquery.qtip.min.css" rel="stylesheet" type="text/css" />
+    <link href="lib/css/style.css" rel="stylesheet" />
+    <link href="lib/css/cytoscape.js-panzoom.css" rel="stylesheet" type="text/css" />
+    <link href="lib/css/font-awesome-4.0.3/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="lib/css/jquery-ui.min.css" rel="stylesheet">
+    <link href="lib/css/cytoscape-context-menus.css" rel="stylesheet" type="text/css" />
+    <link href="lib/css/handsontable.full.min.css" rel="stylesheet" type="text/css" />
+
+
+
+    <script src="lib/js/fastclick.min.js"></script>
+    <script src="lib/js/lodash.min.js"></script>
+    <script src="lib/js/jquery.min.js"></script>
+    <script src="lib/js/bootstrap.min.js"></script>
+    <script src="lib/js/bootstrap-slider.min.js"></script>
+    <script src="lib/js/cytoscape.min.js"></script>
+    <script src="lib/js/jquery.qtip.min.js"></script>
+    <script src="lib/js/cytoscape-panzoom.js"></script>
+    <script src="lib/js/jquery-ui.min.js"></script>
+    <script src="lib/js/cytoscape-ngraph.forcelayout.js"></script>
+    <script src="lib/js/cytoscape-context-menus.js"></script>
+    <script src="lib/js/handsontable.full.min.js"></script>
+    <script src="lib/js/jquery.layout-latest.js"></script>
+    <script src="lib/js/jquery.blockUI.js"></script>
+    <script src="lib/js/functions.js"></script>
+    <script src="lib/js/componentJS.js"></script>
+    <script type="text/javascript">
+        var allAnnotations;
+        var componentAnnotation;
+        var node2AnnotationEvalue;
+        $(function(){ // on dom ready
+            var elements = [ {data: {id: 'n30989', name: 'CTCTTAAGAAATCAACTTTATTAGTTGTACCAATGAAAAT', sequenceLength: '40', info: '30989', total: '1581', annotations: [0, 1, ], pheno0: '233/589', pheno1: '1348/1441', NA: '0/0', significant: 'No', pValue: '9.764107e-01', qValue: '9.998783e-01', weight: '-8.294437e-04', waldStatistic: '0.0295605742446663', background_color: rgbToHex(35,0,219), width: 3.967105e+02, height: 3.967105e+02, transparency: 76}, style: {'background-color': rgbToHex(35,0,219), 'width': 3.967105e+02, 'height': 3.967105e+02, 'background-opacity': 0.3}}, {data: {id: 'n30990', name: 'CTCTTAAGAAATCAACTTTATTAGTTGTACTAATGAAAATACATTGCCTTGGAAAATCTTC', sequenceLength: '61', info: '30990', total: '4', annotations: [0, 1, ], pheno0: '4/589', pheno1: '0/1441', NA: '0/0', significant: 'No', pValue: 'NA', qValue: 'NA', weight: 'NA', waldStatistic: 'NA', background_color: rgbToHex(128,128,128), width: 5.087719e+01, height: 5.087719e+01, transparency: 76}, style: {'background-color': rgbToHex(128,128,128), 'width': 5.087719e+01, 'height': 5.087719e+01, 'background-opacity': 0.3}}, {data: {id: 'n30991', name: 'TCTCTTAAGAAATCAACTTTATTAGTTGTATCAATGAAAATACATTGCCTTGGAAAATCTT', sequenceLength: '61', info: '30991', total: '1', annotations: [0, 1, ], pheno0: '0/589', pheno1: '1/1441', NA: '0/0', significant: 'No', pValue: 'NA', qValue: 'NA', weight: 'NA', waldStatistic: 'NA', background_color: rgbToHex(128,128,128), width: 5.021930e+01, height: 5.021930e+01, transparency: 76}, style: {'background-color': rgbToHex(128,128,128), 'width': 5.021930e+01, 'height': 5.021930e+01, 'background-opacity': 0.3}}, {data: {id: 'n30992', name: 'ATCTCTTAAGAAATCAACTTTATTAGTTGTGCCAATGAAAATACATTGCCTTGGAAAATCT', sequenceLength: '61', info: '30992', total: '10', annotations: [0, 1, ], pheno0: '5/589', pheno1: '5/1441', NA: '0/0', significant: 'No', pValue: 'NA', qValue: 'NA', weight: 'NA', waldStatistic: 'NA', background_color: rgbToHex(128,128,128), width: 5.219298e+01, height: 5.219298e+01, transparency: 76}, style: {'background-color': rgbToHex(128,128,128), 'width': 5.219298e+01, 'height': 5.219298e+01, 'background-opacity': 0.3}}, {data: {id: 'n34048', name: 'ACAACTAATAAAGTTGATTTCTTAAGAGATGAAACTG', sequenceLength: '37', info: '34048', total: '1596', annotations: [0, 1, ], pheno0: '242/589', pheno1: '1354/1441', NA: '0/0', significant: 'No', pValue: '7.532817e-01', qValue: '9.998783e-01', weight: '-1.553980e-02', waldStatistic: '0.314258373050926', background_color: rgbToHex(32,0,222), width: 4.000000e+02, height: 4.000000e+02, transparency: 76}, style: {'background-color': rgbToHex(32,0,222), 'width': 4.000000e+02, 'height': 4.000000e+02, 'background-opacity': 0.3}}, {data: {id: 'n34328', name: 'ATCAACTTTATTAGTTGTACCAATGAAAATACATTG', sequenceLength: '36', info: '34328', total: '1580', annotations: [0, 1, ], pheno0: '232/589', pheno1: '1348/1441', NA: '0/0', significant: 'No', pValue: '9.299923e-01', qValue: '9.998783e-01', weight: '2.428423e-03', waldStatistic: '-0.0878117034636551', background_color: rgbToHex(36,0,218), width: 3.964912e+02, height: 3.964912e+02, transparency: 76}, style: {'background-color': rgbToHex(36,0,218), 'width': 3.964912e+02, 'height': 3.964912e+02, 'background-opacity': 0.3}}, {data: {id: 'n34329', name: 'ATCAACTTTATTAGTTGTACCAATGAAAATGCATTGCCTTGGAAAATCTTCAATATAATGT', sequenceLength: '61', info: '34329', total: '1', annotations: [0, 1, ], pheno0: '1/589', pheno1: '0/1441', NA: '0/0', significant: 'No', pValue: 'NA', qValue: 'NA', weight: 'NA', waldStatistic: 'NA', background_color: rgbToHex(128,128,128), width: 5.021930e+01, height: 5.021930e+01, transparency: 76}, style: {'background-color': rgbToHex(128,128,128), 'width': 5.021930e+01, 'height': 5.021930e+01, 'background-opacity': 0.3}}, {data: {id: 'n43134', name: 'ATCTCTTAAGAAATCAACTTTATTAGTTGTA', sequenceLength: '31', info: '43134', total: '1586', annotations: [0, 1, ], pheno0: '237/589', pheno1: '1349/1441', NA: '0/0', significant: 'No', pValue: '8.819458e-01', qValue: '9.998783e-01', weight: '-5.074095e-03', waldStatistic: '0.148423418284697', background_color: rgbToHex(34,0,220), width: 3.978070e+02, height: 3.978070e+02, transparency: 76}, style: {'background-color': rgbToHex(34,0,220), 'width': 3.978070e+02, 'height': 3.978070e+02, 'background-opacity': 0.3}}, {data: {id: 'n46370', name: 'TCTCTTAAGAAATCAACTTTATTAGTTGTAC', sequenceLength: '31', info: '46370', total: '1585', annotations: [0, 1, ], pheno0: '237/589', pheno1: '1348/1441', NA: '0/0', significant: 'No', pValue: '9.646698e-01', qValue: '9.998783e-01', weight: '-1.334581e-03', waldStatistic: '0.0442861992402947', background_color: rgbToHex(35,0,219), width: 3.975877e+02, height: 3.975877e+02, transparency: 76}, style: {'background-color': rgbToHex(35,0,219), 'width': 3.975877e+02, 'height': 3.975877e+02, 'background-opacity': 0.3}}, {data: {id: 'n188248', name: 'CCAGAGAGAGTTGAAGTGAACTGGTCTAAAATAACCAAAGAAGAGATCGACCAAATTTGGG', sequenceLength: '61', info: '188248', total: '1', annotations: [0, 1, ], pheno0: '1/589', pheno1: '0/1441', NA: '0/0', significant: 'No', pValue: 'NA', qValue: 'NA', weight: 'NA', waldStatistic: 'NA', background_color: rgbToHex(128,128,128), width: 5.021930e+01, height: 5.021930e+01, transparency: 76}, style: {'background-color': rgbToHex(128,128,128), 'width': 5.021930e+01, 'height': 5.021930e+01, 'background-opacity': 0.3}}, {data: {id: 'n188249', name: 'TGAAGTGAACTGGTCTAAACTAACCAAAGAAGAGATCGACCAAAT', sequenceLength: '45', info: '188249', total: '1534', annotations: [0, 1, ], pheno0: '185/589', pheno1: '1349/1441', NA: '0/0', significant: 'No', pValue: '5.045911e-01', qValue: '9.998783e-01', weight: '-1.936227e-02', waldStatistic: '0.667212158929498', background_color: rgbToHex(31,0,223), width: 3.864035e+02, height: 3.864035e+02, transparency: 76}, style: {'background-color': rgbToHex(31,0,223), 'width': 3.864035e+02, 'height': 3.864035e+02, 'background-opacity': 0.3}}, {data: {id: 'n190318', name: 'TGAAGTGAACTGGTCTAAACTAACCAAAGATGAGAT', sequenceLength: '36', info: '190318', total: '61', annotations: [0, 1, ], pheno0: '56/589', pheno1: '5/1441', NA: '0/0', significant: 'No', pValue: 'NA', qValue: 'NA', weight: 'NA', waldStatistic: 'NA', background_color: rgbToHex(128,128,128), width: 6.337719e+01, height: 6.337719e+01, transparency: 76}, style: {'background-color': rgbToHex(128,128,128), 'width': 6.337719e+01, 'height': 6.337719e+01, 'background-opacity': 0.3}}, {data: {id: 'n193907', name: 'AGAGAGTTGAAGTGAACTGGTCTAAACTAACCAAAGA', sequenceLength: '37', info: '193907', total: '1595', annotations: [0, 1, ], pheno0: '241/589', pheno1: '1354/1441', NA: '0/0', significant: 'No', pValue: '8.029412e-01', qValue: '9.998783e-01', weight: '-1.183010e-02', waldStatistic: '0.24957448226918', background_color: rgbToHex(33,0,221), width: 3.997807e+02, height: 3.997807e+02, transparency: 76}, style: {'background-color': rgbToHex(33,0,221), 'width': 3.997807e+02, 'height': 3.997807e+02, 'background-opacity': 0.3}}, {data: {id: 'n194355', name: 'TTTTTGGCCAATGACTGTAAATCCAGAGAGTTGAAGTGAACTGGTCTAAACTAA', sequenceLength: '54', info: '194355', total: '1', annotations: [0, 1, ], pheno0: '0/589', pheno1: '1/1441', NA: '0/0', significant: 'No', pValue: 'NA', qValue: 'NA', weight: 'NA', waldStatistic: 'NA', background_color: rgbToHex(128,128,128), width: 5.021930e+01, height: 5.021930e+01, transparency: 76}, style: {'background-color': rgbToHex(128,128,128), 'width': 5.021930e+01, 'height': 5.021930e+01, 'background-opacity': 0.3}}, {data: {id: 'n194891', name: 'TTAGTTTAGACCAGTTCACTTCAACTCTCTCTGG', sequenceLength: '34', info: '194891', total: '1594', annotations: [0, 1, ], pheno0: '241/589', pheno1: '1353/1441', NA: '0/0', significant: 'No', pValue: '7.596656e-01', qValue: '9.998783e-01', weight: '-1.291042e-02', waldStatistic: '0.305936733109572', background_color: rgbToHex(32,0,222), width: 3.995614e+02, height: 3.995614e+02, transparency: 76}, style: {'background-color': rgbToHex(32,0,222), 'width': 3.995614e+02, 'height': 3.995614e+02, 'background-opacity': 0.3}}, {data: {id: 'n244533', name: 'ATAAAGTTGATTTCTTAAGAGATGAAACTGATGGAAGACGTTTTTGGCCAATGACTGTAAA', sequenceLength: '61', info: '244533', total: '7', annotations: [0, 1, ], pheno0: '1/589', pheno1: '6/1441', NA: '0/0', significant: 'No', pValue: 'NA', qValue: 'NA', weight: 'NA', waldStatistic: 'NA', background_color: rgbToHex(128,128,128), width: 5.153509e+01, height: 5.153509e+01, transparency: 76}, style: {'background-color': rgbToHex(128,128,128), 'width': 5.153509e+01, 'height': 5.153509e+01, 'background-opacity': 0.3}}, {data: {id: 'n244534', name: 'ATAAAGTTGATTTCTTAAGAGATGAAACTGGTGG', sequenceLength: '34', info: '244534', total: '1589', annotations: [0, 1, ], pheno0: '241/589', pheno1: '1348/1441', NA: '0/0', significant: 'Yes', pValue: '9.509282e-07', qValue: '6.978369e-05', weight: '1.165462e-01', waldStatistic: '-4.9215877462616', background_color: rgbToHex(61,0,193), width: 3.984649e+02, height: 3.984649e+02, transparency: 255}, style: {'background-color': rgbToHex(61,0,193), 'width': 3.984649e+02, 'height': 3.984649e+02}}, {data: {id: 'n306451', name: 'TTTAGACCAGTTCACTTCAACTCTCTCTGGATTTACAGTCATTGGCCAAAAA', sequenceLength: '52', info: '306451', total: '1595', annotations: [0, 1, ], pheno0: '242/589', pheno1: '1353/1441', NA: '0/0', significant: 'No', pValue: '7.164718e-01', qValue: '9.998783e-01', weight: '-1.581001e-02', waldStatistic: '0.363105850685732', background_color: rgbToHex(32,0,222), width: 3.997807e+02, height: 3.997807e+02, transparency: 76}, style: {'background-color': rgbToHex(32,0,222), 'width': 3.997807e+02, 'height': 3.997807e+02, 'background-opacity': 0.3}}, {data: {id: 'n308316', name: 'CTCTCTGGATTTACAGTCATTGGCCAAAAACGTCT', sequenceLength: '35', info: '308316', total: '1596', annotations: [0, 1, ], pheno0: '242/589', pheno1: '1354/1441', NA: '0/0', significant: 'No', pValue: '7.532817e-01', qValue: '9.998783e-01', weight: '-1.553980e-02', waldStatistic: '0.314258373050926', background_color: rgbToHex(32,0,222), width: 4.000000e+02, height: 4.000000e+02, transparency: 76}, style: {'background-color': rgbToHex(32,0,222), 'width': 4.000000e+02, 'height': 4.000000e+02, 'background-opacity': 0.3}}, {data: {id: 'n308964', name: 'TGGATTTACAGTCATTGGCCAAAAACGTCTACCACCAGTTTCATCTCTTAAGAAATCAACT', sequenceLength: '61', info: '308964', total: '2', annotations: [0, 1, ], pheno0: '2/589', pheno1: '0/1441', NA: '0/0', significant: 'No', pValue: 'NA', qValue: 'NA', weight: 'NA', waldStatistic: 'NA', background_color: rgbToHex(128,128,128), width: 5.043860e+01, height: 5.043860e+01, transparency: 76}, style: {'background-color': rgbToHex(128,128,128), 'width': 5.043860e+01, 'height': 5.043860e+01, 'background-opacity': 0.3}}, {data: {id: 'n322611', name: 'TAACCAAAGAAGAGATCGACCAAATTTGGGCAGAAGCTAAA', sequenceLength: '41', info: '322611', total: '1511', annotations: [0, ], pheno0: '162/589', pheno1: '1349/1441', NA: '0/0', significant: 'No', pValue: '8.925948e-01', qValue: '9.998783e-01', weight: '-4.416208e-03', waldStatistic: '0.13493603062317', background_color: rgbToHex(34,0,220), width: 3.813596e+02, height: 3.813596e+02, transparency: 76}, style: {'background-color': rgbToHex(34,0,220), 'width': 3.813596e+02, 'height': 3.813596e+02, 'background-opacity': 0.3}}, {data: {id: 'n350696', name: 'TGGAAGACGTTTTTGGCCAATGACTGTAAATCCA', sequenceLength: '34', info: '350696', total: '1594', annotations: [0, 1, ], pheno0: '240/589', pheno1: '1354/1441', NA: '0/0', significant: 'No', pValue: '9.013711e-01', qValue: '9.998783e-01', weight: '-7.667798e-03', waldStatistic: '0.12420588266738', background_color: rgbToHex(33,0,221), width: 3.995614e+02, height: 3.995614e+02, transparency: 76}, style: {'background-color': rgbToHex(33,0,221), 'width': 3.995614e+02, 'height': 3.995614e+02, 'background-opacity': 0.3}}, {data: {id: 'n358120', name: 'TTTACAGTCATTGGCCAAAAACGTCTTCCACCAGTTTCATCTCTTAAGAAATCAACT', sequenceLength: '57', info: '358120', total: '1587', annotations: [0, 1, ], pheno0: '239/589', pheno1: '1348/1441', NA: '0/0', significant: 'Yes', pValue: '1.867672e-07', qValue: '1.508831e-05', weight: '1.289866e-01', waldStatistic: '-5.23737944655044', background_color: rgbToHex(64,0,190), width: 3.980263e+02, height: 3.980263e+02, transparency: 255}, style: {'background-color': rgbToHex(64,0,190), 'width': 3.980263e+02, 'height': 3.980263e+02}}, {data: {id: 'n362786', name: 'AATGAAAATACATTGCCTTGGAAAATCTTCAATATAATG', sequenceLength: '39', info: '362786', total: '1592', annotations: [0, 1, ], pheno0: '239/589', pheno1: '1353/1441', NA: '0/0', significant: 'No', pValue: '7.468612e-01', qValue: '9.998783e-01', weight: '1.514155e-02', waldStatistic: '-0.322568584609983', background_color: rgbToHex(38,0,216), width: 3.991228e+02, height: 3.991228e+02, transparency: 76}, style: {'background-color': rgbToHex(38,0,216), 'width': 3.991228e+02, 'height': 3.991228e+02, 'background-opacity': 0.3}}, {data: {id: 'n364649', name: 'AAGATTTTCCAAGGCAATGTATTTTCATTGG', sequenceLength: '31', info: '364649', total: '1587', annotations: [0, 1, ], pheno0: '235/589', pheno1: '1352/1441', NA: '0/0', significant: 'No', pValue: '7.382228e-01', qValue: '9.998783e-01', weight: '1.098495e-02', waldStatistic: '-0.334103229091232', background_color: rgbToHex(38,0,216), width: 3.980263e+02, height: 3.980263e+02, transparency: 76}, style: {'background-color': rgbToHex(38,0,216), 'width': 3.980263e+02, 'height': 3.980263e+02, 'background-opacity': 0.3}}, {data: {id: 'n364819', name: 'AAGGCAATGTATTTTCATTGGTACAACTAATAAA', sequenceLength: '34', info: '364819', total: '1578', annotations: [0, 1, ], pheno0: '230/589', pheno1: '1348/1441', NA: '0/0', significant: 'No', pValue: '8.246189e-01', qValue: '9.998783e-01', weight: '6.523346e-03', waldStatistic: '-0.221499563849304', background_color: rgbToHex(37,0,217), width: 3.960526e+02, height: 3.960526e+02, transparency: 76}, style: {'background-color': rgbToHex(37,0,217), 'width': 3.960526e+02, 'height': 3.960526e+02, 'background-opacity': 0.3}}, {data: {id: 'n365043', name: 'TTAGTTGTACCAATGAAAATACATTGCCTTGGAAAATCT', sequenceLength: '39', info: '365043', total: '1577', annotations: [0, 1, ], pheno0: '230/589', pheno1: '1347/1441', NA: '0/0', significant: 'No', pValue: '7.362311e-01', qValue: '9.998783e-01', weight: '9.315614e-03', waldStatistic: '-0.336688089436389', background_color: rgbToHex(37,0,217), width: 3.958333e+02, height: 3.958333e+02, transparency: 76}, style: {'background-color': rgbToHex(37,0,217), 'width': 3.958333e+02, 'height': 3.958333e+02, 'background-opacity': 0.3}}, {data: {id: 'n366200', name: 'CAATGAAAATACATTGCCTTGGAAAATCTTC', sequenceLength: '31', info: '366200', total: '1588', annotations: [0, 1, ], pheno0: '235/589', pheno1: '1353/1441', NA: '0/0', significant: 'No', pValue: '7.788508e-01', qValue: '9.998783e-01', weight: '1.080914e-02', waldStatistic: '-0.2806249529442', background_color: rgbToHex(38,0,216), width: 3.982456e+02, height: 3.982456e+02, transparency: 76}, style: {'background-color': rgbToHex(38,0,216), 'width': 3.982456e+02, 'height': 3.982456e+02, 'background-opacity': 0.3}}, {data: {id: 'e66980', source: 'n34048', target: 'n30992'}}, {data: {id: 'e66974', source: 'n34328', target: 'n30989'}}, {data: {id: 'e66975', source: 'n34329', target: 'n30989'}}, {data: {id: 'e66978', source: 'n43134', target: 'n30991'}}, {data: {id: 'e73522', source: 'n43134', target: 'n34048'}}, {data: {id: 'e66973', source: 'n46370', target: 'n30989'}}, {data: {id: 'e66976', source: 'n46370', target: 'n30990'}}, {data: {id: 'e91101', source: 'n46370', target: 'n43134'}}, {data: {id: 'e336619', source: 'n193907', target: 'n188249'}}, {data: {id: 'e339502', source: 'n193907', target: 'n190318'}}, {data: {id: 'e344451', source: 'n194355', target: 'n193907'}}, {data: {id: 'e344452', source: 'n194891', target: 'n193907'}}, {data: {id: 'e73523', source: 'n244533', target: 'n34048'}}, {data: {id: 'e73524', source: 'n244534', target: 'n34048'}}, {data: {id: 'e336617', source: 'n306451', target: 'n188248'}}, {data: {id: 'e345209', source: 'n306451', target: 'n194891'}}, {data: {id: 'e344860', source: 'n308316', target: 'n194355'}}, {data: {id: 'e479682', source: 'n308316', target: 'n306451'}}, {data: {id: 'e411223', source: 'n308964', target: 'n244534'}}, {data: {id: 'e481230', source: 'n308964', target: 'n308316'}}, {data: {id: 'e336618', source: 'n322611', target: 'n188248'}}, {data: {id: 'e411222', source: 'n350696', target: 'n244533'}}, {data: {id: 'e481231', source: 'n350696', target: 'n308316'}}, {data: {id: 'e411224', source: 'n358120', target: 'n244534'}}, {data: {id: 'e518870', source: 'n358120', target: 'n350696'}}, {data: {id: 'e66977', source: 'n362786', target: 'n30990'}}, {data: {id: 'e66981', source: 'n364649', target: 'n30992'}}, {data: {id: 'e74033', source: 'n364819', target: 'n34328'}}, {data: {id: 'e529404', source: 'n365043', target: 'n364649'}}, {data: {id: 'e529545', source: 'n365043', target: 'n364819'}}, {data: {id: 'e66979', source: 'n366200', target: 'n30991'}}, {data: {id: 'e527773', source: 'n366200', target: 'n362786'}}, {data: {id: 'e529403', source: 'n366200', target: 'n364649'}},  ]
+            allAnnotations = ['USA300HOU_RS07800;DBGWAS_general_tag=hypothetical_protein', 'SAOUHSC_01547;DBGWAS_general_tag=hypothetical_protein', ]
+            componentAnnotation = [[0, 28, 6.130000e-25, ], [1, 27, 6.130000e-25, ], ]
+            node2AnnotationEvalue = {'n30989': [[0, 3.260000e-15], [1, 3.260000e-15], ], 'n30990': [[0, 6.130000e-25], [1, 6.130000e-25], ], 'n30991': [[0, 6.130000e-25], [1, 6.130000e-25], ], 'n30992': [[0, 6.130000e-25], [1, 6.130000e-25], ], 'n34048': [[0, 1.310000e-13], [1, 1.310000e-13], ], 'n34328': [[0, 4.460000e-13], [1, 4.460000e-13], ], 'n34329': [[0, 6.130000e-25], [1, 2.200000e-24], ], 'n43134': [[0, 1.940000e-10], [1, 1.940000e-10], ], 'n46370': [[0, 1.940000e-10], [1, 1.940000e-10], ], 'n188248': [[0, 6.130000e-25], [1, 1.330000e-21], ], 'n188249': [[0, 6.390000e-18], [1, 1.380000e-14], ], 'n190318': [[0, 2.080000e-11], [1, 4.460000e-13], ], 'n193907': [[0, 1.310000e-13], [1, 1.310000e-13], ], 'n194355': [[0, 5.140000e-20], [1, 5.140000e-20], ], 'n194891': [[0, 5.130000e-12], [1, 5.130000e-12], ], 'n244533': [[0, 6.130000e-25], [1, 6.130000e-25], ], 'n244534': [[0, 5.130000e-12], [1, 5.130000e-12], ], 'n306451': [[0, 1.040000e-21], [1, 1.040000e-21], ], 'n308316': [[0, 1.520000e-12], [1, 1.520000e-12], ], 'n308964': [[0, 6.130000e-25], [1, 6.130000e-25], ], 'n322611': [[0, 9.480000e-16], ], 'n350696': [[0, 5.130000e-12], [1, 5.130000e-12], ], 'n358120': [[0, 1.990000e-24], [1, 1.990000e-24], ], 'n362786': [[0, 1.120000e-14], [1, 1.120000e-14], ], 'n364649': [[0, 1.940000e-10], [1, 1.940000e-10], ], 'n364819': [[0, 5.130000e-12], [1, 5.130000e-12], ], 'n365043': [[0, 1.120000e-14], [1, 1.120000e-14], ], 'n366200': [[0, 1.940000e-10], [1, 1.940000e-10], ], }
+            var annotation2NodesPar = [['n30989', 'n30990', 'n30991', 'n30992', 'n34048', 'n34328', 'n34329', 'n43134', 'n46370', 'n188248', 'n188249', 'n190318', 'n193907', 'n194355', 'n194891', 'n244533', 'n244534', 'n306451', 'n308316', 'n308964', 'n322611', 'n350696', 'n358120', 'n362786', 'n364649', 'n364819', 'n365043', 'n366200', ], ['n30989', 'n30990', 'n30991', 'n30992', 'n34048', 'n34328', 'n34329', 'n43134', 'n46370', 'n188248', 'n188249', 'n190318', 'n193907', 'n194355', 'n194891', 'n244533', 'n244534', 'n306451', 'n308316', 'n308964', 'n350696', 'n358120', 'n362786', 'n364649', 'n364819', 'n365043', 'n366200', ], ]
+            var extraTags = []
+            buildPage(elements, allAnnotations, componentAnnotation, node2AnnotationEvalue, annotation2NodesPar, extraTags, 0.00)
+        });
+    </script>
+</head>
+
+<body>
+<div id="cy" class="ui-layout-center"></div>
+
+<div id="config" class="config ui-layout-east">
+    <div class="preamble">
+        <table>
+            <tr>
+                <td><span id="nodesSelectedInfo" style="font-size:20px;"></span></td>
+            </tr>
+
+            <tr>
+                <!-- Vertical spacing -->
+                <td><p style="margin-bottom: 1cm;"'></p></td>
+            </tr>
+            <tr>
+            <tr>
+                <td>Estimated Effect:</td>
+            </tr>
+            <tr>
+                <td>
+                    <canvas id="gradientCanvas" width="150" height="25"></canvas> <br/>
+                    <span style="color:blue">-0.02 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp </span><span style="color:red">0.13</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p style="margin-bottom: 1cm;"'></p>
+                    Allele frequency: <br/>
+                    <canvas id="alleleCanvas" width="250" height="50"></canvas> <br/>
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp High &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Low
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p style="margin-bottom: 1cm;"'></p>
+                    <button class="btn btn-default" type="button" onclick="createCytoscapeExportDialog();">View graph on Cytoscape Desktop</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p style="margin-bottom: 1cm;"'></p>
+                    <button class="btn btn-danger" type="button" onclick="createInstructionsDialog();">HELP!</button>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p style="margin-bottom: 3cm;"'></p>
+                    <div class="logos">
+                        <a target="_blank" href="https://team.inria.fr/erable/en/"><img class="small_logo" src="lib/resources/erable_logo.png" /></a>
+                        <a target="_blank" href="https://lbbe.univ-lyon1.fr/?lang=en"><img class="small_logo" src="lib/resources/lbbe_logo.png" /></a>
+                        <a target="_blank" href="http://www.biomerieux.fr/"><img class="small_logo" src="lib/resources/biomerieux_logo.png" /></a>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<!-- Div for the annotation -->
+<div id="DBGWAS_graph_tag_table" class="ui-layout-north"></div>
+
+<!-- Div for the nodes -->
+<div id="nodeTable" class="ui-layout-south"></div>
+</body>
+</html>

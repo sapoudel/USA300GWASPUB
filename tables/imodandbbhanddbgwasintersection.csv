@@ -1,0 +1,27 @@
+# Conserved genes as determined by that were enriched by DBGWAS and iModulon Analysis. Note some of these genes e.g. mecA are no conserved among USA300 and non-USA300 strains,,,,,,,,,,,
+,gene_name,accession,old_locus_tag,start,end,strand,gene_product,COG,uniprot,operon,regulator
+USA300HOU_RS07940,USA300HOU_RS07940,NC_010079.1,USA300HOU_1488,1602849,1603283,+,hypothetical protein,No COG annotation,A0A0H2XG92,Op968,"Genomic Island 6,Genomic Island 7"
+USA300HOU_RS03330,USA300HOU_RS03330,NC_010079.1,USA300HOU_0633,690501,690761,-,hypothetical protein,No COG annotation,A0A0H2WW78,Op420,
+USA300HOU_RS00325,arcA,NC_010079.1,USA300HOU_0070,73059,74294,-,arginine deiminase,Amino acid transport and metabolism,A0A0H2XGY3,Op48,Genomic Island 1
+USA300HOU_RS07805,USA300HOU_RS07805,NC_010079.1,USA300HOU_1460,1591769,1591969,-,DUF1514 family protein,No COG annotation,A0A0H2XFK4,Op961,Genomic Island 6
+USA300HOU_RS10610,USA300HOU_RS10610,NC_010079.1,USA300HOU_1958,2095935,2097419,-,phage tail protein,Function unknown,A0A0H2XK01,Op1281,Genomic Island 9
+USA300HOU_RS03315,USA300HOU_RS03315,NC_010079.1,USA300HOU_0630,686164,687522,-,cell division protein FtsK,"Cell cycle control, cell division, chromosome partitioning",A0A0H2XI98,Op419,
+USA300HOU_RS03325,USA300HOU_RS03325,NC_010079.1,USA300HOU_0632,690106,690489,-,hypothetical protein,No COG annotation,A0A0H2WW64,Op420,
+USA300HOU_RS09190,harA/isdH,NC_010079.1,USA300HOU_1720,1844806,1847493,-,haptoglobin-binding heme uptake protein HarA,Cell wall/membrane/envelope biogenesis,A0A0E8IWL6,Op1110,Fur
+USA300HOU_RS00160,mecA,NC_010079.1,USA300HOU_0031,39127,41136,-,PBP2a family beta-lactam-resistant peptidoglycan transpeptidase MecA,Cell wall/membrane/envelope biogenesis,A0A141HMH7,Op19,MecI
+USA300HOU_RS07960,USA300HOU_RS07960,NC_010079.1,USA300HOU_1490,1604680,1605885,+,site-specific integrase,Function unknown,A0A0D1JZT2,Op971,Genomic Island 7
+USA300HOU_RS07790,USA300HOU_RS07790,NC_010079.1,USA300HOU_1457,1588403,1588693,-,VRR-NUC domain-containing protein,Function unknown,A0A0H2XJG7,Op958,Genomic Island 6
+USA300HOU_RS00245,USA300HOU_RS00245,NC_010079.1,USA300HOU_0050,59043,60008,+,HNH endonuclease,Defense mechanisms,A0A0H2XJN9,Op34,Genomic Island 1
+USA300HOU_RS00385,USA300HOU_RS00385,NC_010079.1,USA300HOU_0082,84346,84981,+,ATP-binding cassette domain-containing protein,Amino acid transport and metabolism,A0A0H2XIH8,Op55,
+USA300HOU_RS00390,USA300HOU_RS00390,NC_010079.1,USA300HOU_0084,86001,88064,+,copper-translocating P-type ATPase,Inorganic ion transport and metabolism,A0A6K1YU31,Op56,
+USA300HOU_RS00380,USA300HOU_RS00380,NC_010079.1,USA300HOU_0081,83586,84353,+,ABC transporter ATP-binding protein,Amino acid transport and metabolism,A0A0H2XE30,Op55,
+USA300HOU_RS03320,USA300HOU_RS03320,NC_010079.1,USA300HOU_0631,687576,690071,-,DUF87 domain-containing protein,Function unknown,A0A0E1VP76,Op420,
+USA300HOU_RS07785,USA300HOU_RS07785,NC_010079.1,USA300HOU_1456,1587055,1588422,-,DEAD/DEAH box helicase,Function unknown,A0A5C0VTT4,Op958,Genomic Island 6
+USA300HOU_RS00260,USA300HOU_RS00260,NC_010079.1,USA300HOU_0053,60794,61153,-,hypothetical protein,No COG annotation,A0A169SZC0,Op37,Genomic Island 1
+USA300HOU_RS00155,USA300HOU_RS00155,NC_010079.1,USA300HOU_0030,38653,39081,+,MaoC family dehydratase,Lipid transport and metabolism,A0A088B1I4,Op18,
+USA300HOU_RS00285,USA300HOU_RS00285,NC_010079.1,USA300HOU_0061,65661,66164,-,DUF1643 domain-containing protein,Defense mechanisms,A0A0H2XIG0,Op42,Genomic Island 1
+USA300HOU_RS03695,USA300HOU_RS03695,NC_010079.1,USA300HOU_0706,755637,756512,-,undecaprenyl-diphosphate phosphatase,Defense mechanisms,A0A068A7R6,Op466,
+USA300HOU_RS14330,USA300HOU_RS14330,NC_010079.1,USA300HOU_2636,2783442,2783891,-,arginine repressor,Transcription,A0A0H2X0A6,Op1748,
+USA300HOU_RS00205,USA300HOU_RS00205,NC_010079.1,USA300HOU_0041,49125,50912,-,DUF927 domain-containing protein,"Replication, recombination and repair",A0A0H2XHF3,Op25,
+USA300HOU_RS12435,USA300HOU_RS12435,NC_010079.1,USA300HOU_2279,2412784,2414739,-,helix-turn-helix transcriptional regulator,Transcription,A0A0H2XHJ0,Op1470,
+USA300HOU_RS07780,USA300HOU_RS07780,NC_010079.1,USA300HOU_1455,1586605,1587042,-,transcriptional regulator,Function unknown,A0A0E8GJ12,Op958,Genomic Island 6

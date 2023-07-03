@@ -1,0 +1,5 @@
+CompId	Annotation	NumberOfNodes	EValue
+77	USA300HOU_RS08120;DBGWAS_general_tag=DNA_repair_protein_RecN	17	7.380000e-41
+77	SAOUHSC_01615;DBGWAS_general_tag=DNA_repair_protein_RecN	17	7.380000e-41
+77	USA300HOU_RS08125;DBGWAS_general_tag=arginine_repressor	3	1.320000e-26
+77	SAOUHSC_01617;DBGWAS_general_tag=arginine_repressor	3	1.320000e-26

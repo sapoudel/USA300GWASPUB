@@ -1,0 +1,5 @@
+CompId	Annotation	NumberOfNodes	EValue
+106	USA300HOU_RS12320;DBGWAS_general_tag=molybdenum_cofactor_biosynthesis_protein	15	3.150000e-82
+106	SAOUHSC_02544;DBGWAS_general_tag=molybdopterin_precursor_biosynthesis_MoaB	15	3.150000e-82
+106	USA300HOU_RS12315;DBGWAS_general_tag=cyclic_pyranopterin_monophosphate_synthase_MoaC	3	1.370000e-28
+106	SAOUHSC_02543;DBGWAS_general_tag=molybdenum_cofactor_biosynthesis_protein_MoaC	3	1.370000e-28

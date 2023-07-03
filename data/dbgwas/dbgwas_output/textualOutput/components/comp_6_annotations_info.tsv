@@ -1,0 +1,5 @@
+CompId	Annotation	NumberOfNodes	EValue
+6	SAOUHSC_00240;DBGWAS_general_tag=D-ribose_pyranase	16	2.600000e-51
+6	USA300HOU_RS01405;DBGWAS_general_tag=D-ribose_pyranase	15	2.600000e-51
+6	USA300HOU_RS01410;DBGWAS_general_tag=ribose_transporter_RbsU	5	6.130000e-25
+6	SAOUHSC_00241;DBGWAS_general_tag=hypothetical_protein	5	6.130000e-25

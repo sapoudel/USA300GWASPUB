@@ -1,0 +1,7 @@
+CompId	Annotation	NumberOfNodes	EValue
+32	USA300HOU_RS13015;DBGWAS_general_tag=prevent-host-death_protein	13	1.280000e-82
+32	SAOUHSC_02692;DBGWAS_general_tag=hypothetical_protein	13	1.280000e-82
+32	USA300HOU_RS13010;DBGWAS_general_tag=addiction_module_antitoxin_RelB	6	3.850000e-28
+32	SAOUHSC_02691;DBGWAS_general_tag=hypothetical_protein	6	3.850000e-28
+32	TCH1516intergenic_2530749-2530913	10	6.130000e-25
+32	NCTC8325intergenic_2477698-2477862	10	6.130000e-25

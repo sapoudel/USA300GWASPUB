@@ -1,0 +1,7 @@
+CompId	Annotation	NumberOfNodes	EValue
+111	USA300HOU_RS08285;DBGWAS_general_tag=penicillin-binding_protein_3	18	1.620000e-25
+111	SAOUHSC_01652;DBGWAS_general_tag=penicillin-binding_protein_3	19	1.620000e-25
+111	TCH1516intergenic_1662217-1662329	5	2.620000e-40
+111	NCTC8325intergenic_1564830-1564942	5	2.620000e-40
+111	USA300HOU_RS08280;DBGWAS_general_tag=50S_ribosomal_protein_L33	2	2.250000e-09
+111	SAOUHSC_01651;DBGWAS_general_tag=50S_ribosomal_protein_L33	2	2.250000e-09
