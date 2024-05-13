@@ -10,6 +10,5 @@ The contents are divided into 4 main folder:
 * **notebooks**: jupyter notebooks containing all code used to run the analysis and generate most of the figures.
 
 * **tables**: subset of the data that are specifically mentioned in the paper or are provided for convenience.
-* 
 
 Ouput of DBGWAS was also further analyzed using code in the [DBGWAS Network Analysis repo](https://github.com/SBRG/dbgwas-network).
