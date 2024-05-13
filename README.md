@@ -3,7 +3,13 @@ Results, data, model and code for the paper 'Interpreting roles of mutations ass
 
 The contents are divided into 4 main folder:
 
-data: contains all the interim and processed data from the paper. Large data such as genome sequences, fastq files are not included.
-figures: figures in the paper. Note: the final figures in the paper may have been altered for clarity and aesthetics.
-notebooks: jupyter notebooks containing all code used to run the analysis and generate most of the figures.
-tables: subset of the data that are specifically mentioned in the paper or are provided for convenience.
+* **data**: contains all the interim and processed data from the paper. Large data such as genome sequences, fastq files are not included.
+
+* **figures**: figures in the paper. Note: the final figures in the paper may have been altered for clarity and aesthetics.
+
+* **notebooks**: jupyter notebooks containing all code used to run the analysis and generate most of the figures.
+
+* **tables**: subset of the data that are specifically mentioned in the paper or are provided for convenience.
+* 
+
+Ouput of DBGWAS was also further analyzed using code in the [DBGWAS Network Analysis repo](https://github.com/SBRG/dbgwas-network).
